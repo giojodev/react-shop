@@ -9,6 +9,7 @@ module.exports={
     resolve:{
         extensions:['.js','.jsx'],
     },
+    mode:'development',
     module:{
         rules:[
             {
@@ -22,7 +23,7 @@ module.exports={
                 test: /\.html$/,
                 use:[
                     {
-                        loader:'hmtl-loader'
+                        loader:'html-loader'
                     }
                 ]
             }
