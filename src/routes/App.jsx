@@ -1,25 +1,28 @@
-import React from 'react';
-import {BrowserRouter,Switch, Route} from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import PasswordRecovery from '../containers/RecoveryPassword';
+import NotFound from '../pages/NotFound';
 import Layout from '../containers/Layout';
-import Login from '../containers/login';
-import RecoveryPassword from '../containers/RecoveryPassword';
+import Login from '../containers/Login';
+import Home from '../pages/Home';
 import '../styles/global.css';
 
-const App=()=>{
-    return(
+const App = () => {
+    return (
         <BrowserRouter>
-            <Switch>
-                <Layout>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/login' component={Login}/>
-                    <Route exact path='/recovery-password' component={RecoveryPassword}/>
-                    <Route component={NotFound}/>
-                </Layout>
-            </Switch>
-        {/* <Login ></Login> esta estructura puede ser utilizada sin embargo si no se recibe un hijo es mejor utilizar
-            la opcion de arriba, cerrado de inicio*/}
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/home" element={<Navigate to="/" />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/recoverypassword" element={<PasswordRecovery />} />
+                    <Route path="*" element={
+                    	<div style={{ padding: "1rem" }}><p>There's nothing here!</p></div>
+                    }/>
+                </Routes>
+            </Layout>
         </BrowserRouter>
     );
-}
+};
 
 export default App;
