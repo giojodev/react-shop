@@ -12,13 +12,16 @@ const App = () => {
         <BrowserRouter>
             <Layout>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/home" element={<Navigate to="/" />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/recoverypassword" element={<PasswordRecovery />} />
-                    <Route path="*" element={
-                    	<div style={{ padding: "1rem" }}><p>There's nothing here!</p></div>
-                    }/>
+                <Route exact path="/" component={Home} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/password-recovery" component={PasswordRecovery} />
+					<Route exact path="/send-email" component={SendEmail} />
+					<Route exact path="/new-password" component={NewPassword} />
+					<Route exact path="/account" component={MyAccount} />
+					<Route exact path="/signup" component={CreateAccount} />
+					<Route exact path="/checkout" component={Checkout} />
+					<Route exact path="/orders" component={Orders} />
+					<Route path="*" component={NotFound} />
                 </Routes>
             </Layout>
         </BrowserRouter>
