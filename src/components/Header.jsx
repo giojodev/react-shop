@@ -4,6 +4,7 @@ import Menu from '@components/Menu';
 import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	const [toggle, setToggle] = useState(false);
@@ -18,9 +19,7 @@ const Header = () => {
 			<div className="navbar-left">
 				<img src={logo} alt="logo" className="nav-logo" />
 				<ul>
-					<li>
-						<a href="/">All</a>
-					</li>
+					<Link to="orders">Orders</Link>
 					<li>
 						<a href="/">Clothes</a>
 					</li>
