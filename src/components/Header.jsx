@@ -39,7 +39,7 @@ const Header = () => {
 			</div>
 			<div className="navbar-right">
 				<ul>
-					<li className="navbar-email" onClick={handleToggle}>
+					<li className="navbar-email ejemplogio" onClick={handleToggle}>
 						platzi@example.com
 					</li>
 					<li className="navbar-shopping-cart">
