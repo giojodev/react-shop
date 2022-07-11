@@ -5,10 +5,12 @@ import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
 import AppContext from '../context/AppContext';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
+import MyOrder from '../containers/MyOrder';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
 	const [toggle, setToggle] = useState(false);
+	const [toggleOrders,setToogleOrders]=useState(false);
 	const {state} = useContext(AppContext);
  
 	const handleToggle = () => {
@@ -44,14 +46,16 @@ const Header = () => {
 					<li className="navbar-email ejemplogio" onClick={handleToggle}>
 						platzi@example.com
 					</li>
-					<li className="navbar-shopping-cart">
+					<li className="navbar-shopping-cart" onClick={()=>setToogleOrders(!toggleOrders)}>
 						<img src={shoppingCart} alt="shopping cart" />
-						{state.cart.length> 0 ? <div>{state.cart.length}</div> : null}
+						{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
 					</li>
 				</ul>
 			</div>
 			{toggle && <Menu />}
+			{toggleOrders && <MyOrder />}
 		</nav>
+			
 	);
 }
 
